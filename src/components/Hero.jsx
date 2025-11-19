@@ -3,6 +3,24 @@ import { motion } from 'framer-motion'
 import { ArrowRight } from 'lucide-react'
 import { Link } from 'react-router-dom'
 
+const phoneImages = [
+  {
+    name: 'iPhone 15',
+    src: 'https://images.unsplash.com/photo-1697257379687-588927284e74?ixid=M3w3OTkxMTl8MHwxfHNlYXJjaHwxfHxDbG9zZS11cCUyMG9mJTIwYSUyMG1vZGVybnxlbnwwfDB8fHwxNzYzNTgyOTMwfDA&ixlib=rb-4.1.0&w=1600&auto=format&fit=crop&q=80',
+    alt: 'Close-up of a modern smartphone in blue finish'
+  },
+  {
+    name: 'Galaxy S24',
+    src: 'https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?auto=format&fit=crop&w=800&q=80',
+    alt: 'Android smartphone on a minimal background'
+  },
+  {
+    name: 'Pixel 8',
+    src: 'https://images.unsplash.com/photo-1694878982190-6e37aa9eb306?ixid=M3w3OTkxMTl8MHwxfHNlYXJjaHwxfHxBbmRyb2lkJTIwc21hcnRwaG9uZSUyMG9uJTIwYXxlbnwwfDB8fHwxNzYzNTgyOTMxfDA&ixlib=rb-4.1.0&w=1600&auto=format&fit=crop&q=80',
+    alt: 'Smartphone device with soft studio lighting'
+  }
+]
+
 export default function Hero() {
   return (
     <section className="relative overflow-hidden">
@@ -33,10 +51,12 @@ export default function Hero() {
             <div className="relative rounded-3xl p-1 bg-gradient-to-br from-slate-800 to-slate-900 border border-white/10 shadow-2xl">
               <div className="rounded-2xl p-6 bg-gradient-to-br from-slate-900 to-slate-800">
                 <div className="grid grid-cols-3 gap-3 text-center">
-                  {['iPhone 15','Galaxy S24','Pixel 8'].map((m, i) => (
-                    <div key={i} className="rounded-2xl bg-slate-900/60 border border-white/10 p-6">
-                      <div className="h-24 mb-3 rounded-xl bg-gradient-to-br from-blue-500/20 to-sky-500/20" />
-                      <div className="text-white font-semibold">{m}</div>
+                  {phoneImages.map((p, i) => (
+                    <div key={i} className="rounded-2xl bg-slate-900/60 border border-white/10 p-4">
+                      <div className="h-28 mb-3 rounded-xl overflow-hidden bg-slate-800/40">
+                        <img src={p.src} alt={p.alt} className="w-full h-full object-cover" loading="lazy" />
+                      </div>
+                      <div className="text-white font-semibold">{p.name}</div>
                       <div className="text-sky-300 text-sm">$0 with trade‑in</div>
                     </div>
                   ))}

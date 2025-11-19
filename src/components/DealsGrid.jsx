@@ -2,12 +2,48 @@ import React, { useState } from 'react'
 import { BadgePercent, Info } from 'lucide-react'
 
 const phones = [
-  { brand: 'Apple', model: 'iPhone 15', price: 0, details: 'With eligible trade‑in and bill credits. 36‑mo. agreement required.' },
-  { brand: 'Samsung', model: 'Galaxy S24', price: 0, details: 'With eligible trade‑in and bill credits. 36‑mo. agreement required.' },
-  { brand: 'Google', model: 'Pixel 8', price: 0, details: 'With eligible trade‑in and bill credits. 36‑mo. agreement required.' },
-  { brand: 'Apple', model: 'iPhone 14', price: 5, details: 'With eligible trade‑in and bill credits.' },
-  { brand: 'Samsung', model: 'Galaxy A54', price: 1, details: 'With eligible trade‑in and bill credits.' },
-  { brand: 'Google', model: 'Pixel 7a', price: 2, details: 'With eligible trade‑in and bill credits.' },
+  {
+    brand: 'Apple',
+    model: 'iPhone 15',
+    price: 0,
+    details: 'With eligible trade‑in and bill credits. 36‑mo. agreement required.',
+    image: 'https://images.unsplash.com/photo-1629380321590-3b3f75d66dec?ixid=M3w3OTkxMTl8MHwxfHNlYXJjaHwxfHxjZXJhbWljJTIwcG90dGVyeSUyMGhhbmRtYWRlfGVufDB8MHx8fDE3NjM1MTI1ODN8MA&ixlib=rb-4.1.0&w=1600&auto=format&fit=crop&q=80'
+  },
+  {
+    brand: 'Samsung',
+    model: 'Galaxy S24',
+    price: 0,
+    details: 'With eligible trade‑in and bill credits. 36‑mo. agreement required.',
+    image: 'https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?auto=format&fit=crop&w=900&q=80'
+  },
+  {
+    brand: 'Google',
+    model: 'Pixel 8',
+    price: 0,
+    details: 'With eligible trade‑in and bill credits. 36‑mo. agreement required.',
+    image: 'https://images.unsplash.com/photo-1629380321590-3b3f75d66dec?ixid=M3w3OTkxMTl8MHwxfHNlYXJjaHwxfHxjZXJhbWljJTIwcG90dGVyeSUyMGhhbmRtYWRlfGVufDB8MHx8fDE3NjM1MTI1ODN8MA&ixlib=rb-4.1.0&w=1600&auto=format&fit=crop&q=80'
+  },
+  {
+    brand: 'Apple',
+    model: 'iPhone 14',
+    price: 5,
+    details: 'With eligible trade‑in and bill credits.',
+    image: 'https://images.unsplash.com/photo-1629380321590-3b3f75d66dec?ixid=M3w3OTkxMTl8MHwxfHNlYXJjaHwxfHxjZXJhbWljJTIwcG90dGVyeSUyMGhhbmRtYWRlfGVufDB8MHx8fDE3NjM1MTI1ODN8MA&ixlib=rb-4.1.0&w=1600&auto=format&fit=crop&q=80'
+  },
+  {
+    brand: 'Samsung',
+    model: 'Galaxy A54',
+    price: 1,
+    details: 'With eligible trade‑in and bill credits.',
+    image: 'https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?auto=format&fit=crop&w=900&q=80'
+  },
+  {
+    brand: 'Google',
+    model: 'Pixel 7a',
+    price: 2,
+    details: 'With eligible trade‑in and bill credits.',
+    image: 'https://images.unsplash.com/photo-1629380321590-3b3f75d66dec?ixid=M3w3OTkxMTl8MHwxfHNlYXJjaHwxfHxjZXJhbWljJTIwcG90dGVyeSUyMGhhbmRtYWRlfGVufDB8MHx8fDE3NjM1MTI1ODN8MA&ixlib=rb-4.1.0&w=1600&auto=format&fit=crop&q=80'
+  }
 ]
 
 export default function DealsGrid() {
@@ -27,7 +63,9 @@ export default function DealsGrid() {
             <div className="inline-flex items-center gap-2 bg-sky-500/10 text-sky-300 px-2 py-1 rounded-lg text-xs border border-sky-400/20">LIMITED TIME ONLY</div>
             <BadgePercent className="w-4 h-4 text-sky-300" />
           </div>
-          <div className="h-36 rounded-xl bg-gradient-to-br from-blue-500/20 to-sky-500/20 mb-3" />
+          <div className="h-36 rounded-xl overflow-hidden bg-slate-800/40 mb-3">
+            <img src={p.image} alt={`${p.brand} ${p.model}`} className="w-full h-full object-cover group-hover:scale-[1.02] transition-transform" loading="lazy" />
+          </div>
           <div className="font-semibold text-white">{p.brand} {p.model}</div>
           <div className="text-slate-300 text-sm">As low as ${p.price}/mo with trade‑in</div>
           <div className="mt-2 inline-flex items-center gap-1 text-sky-300 text-sm">Full details <Info className="w-4 h-4" /></div>
@@ -46,8 +84,10 @@ export default function DealsGrid() {
                 </div>
                 <button onClick={() => setOpen(false)} className="px-3 py-2 rounded-lg bg-slate-800 border border-white/10">Close</button>
               </div>
-              <div className="h-48 rounded-xl bg-gradient-to-br from-blue-500/20 to-sky-500/20 my-4" />
-              <p className="text-slate-300 text-sm leading-relaxed">{selected.details} Taxes, fees, and additional terms apply. Credit approval required. Offers subject to change. Generic imagery shown; no third‑party logos used.</p>
+              <div className="h-48 rounded-xl overflow-hidden bg-slate-800/40 my-4">
+                <img src={selected.image} alt={`${selected.brand} ${selected.model}`} className="w-full h-full object-cover" />
+              </div>
+              <p className="text-slate-300 text-sm leading-relaxed">{selected.details} Taxes, fees, and additional terms apply. Credit approval required. Offers subject to change. Images are illustrative devices, not product photography from manufacturers.</p>
             </div>
           </div>
         </div>
