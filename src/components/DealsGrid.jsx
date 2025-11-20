@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { BadgePercent, Info } from 'lucide-react'
+import { BadgePercent, Info, ShieldCheck, Smartphone } from 'lucide-react'
 
 const phones = [
   {
@@ -7,42 +7,48 @@ const phones = [
     model: 'iPhone 15',
     price: 0,
     details: 'With eligible trade‑in and bill credits. 36‑mo. agreement required.',
-    image: 'https://images.unsplash.com/photo-1629380321590-3b3f75d66dec?ixid=M3w3OTkxMTl8MHwxfHNlYXJjaHwxfHxjZXJhbWljJTIwcG90dGVyeSUyMGhhbmRtYWRlfGVufDB8MHx8fDE3NjM1MTI1ODN8MA&ixlib=rb-4.1.0&w=1600&auto=format&fit=crop&q=80'
+    image: 'https://images.unsplash.com/photo-1629380321590-3b3f75d66dec?ixid=M3w3OTkxMTl8MHwxfHNlYXJjaHwxfHxjZXJhbWljJTIwcG90dGVyeSUyMGhhbmRtYWRlfGVufDB8MHx8fDE3NjM1MTI1ODN8MA&ixlib=rb-4.1.0&w=1600&auto=format&fit=crop&q=80',
+    compat: ['5G + LTE', 'eSIM + physical SIM', 'Wi‑Fi 6/6E', 'Works with AT&T Prepaid & Postpaid']
   },
   {
     brand: 'Samsung',
     model: 'Galaxy S24',
     price: 0,
     details: 'With eligible trade‑in and bill credits. 36‑mo. agreement required.',
-    image: 'https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?auto=format&fit=crop&w=900&q=80'
+    image: 'https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?auto=format&fit=crop&w=900&q=80',
+    compat: ['5G + LTE', 'Dual SIM (eSIM + nano‑SIM)', 'Wi‑Fi 6E', 'Hotspot + Wi‑Fi Calling']
   },
   {
     brand: 'Google',
     model: 'Pixel 8',
     price: 0,
     details: 'With eligible trade‑in and bill credits. 36‑mo. agreement required.',
-    image: 'https://images.unsplash.com/photo-1629380321590-3b3f75d66dec?ixid=M3w3OTkxMTl8MHwxfHNlYXJjaHwxfHxjZXJhbWljJTIwcG90dGVyeSUyMGhhbmRtYWRlfGVufDB8MHx8fDE3NjM1MTI1ODN8MA&ixlib=rb-4.1.0&w=1600&auto=format&fit=crop&q=80'
+    image: 'https://images.unsplash.com/photo-1629380321590-3b3f75d66dec?ixid=M3w3OTkxMTl8MHwxfHNlYXJjaHwxfHxjZXJhbWljJTIwcG90dGVyeSUyMGhhbmRtYWRlfGVufDB8MHx8fDE3NjM1MTI1ODN8MA&ixlib=rb-4.1.0&w=1600&auto=format&fit=crop&q=80',
+    compat: ['5G + LTE', 'eSIM', 'Wi‑Fi 6E', 'Hotspot + Wi‑Fi Calling']
   },
   {
     brand: 'Apple',
     model: 'iPhone 14',
     price: 5,
     details: 'With eligible trade‑in and bill credits.',
-    image: 'https://images.unsplash.com/photo-1629380321590-3b3f75d66dec?ixid=M3w3OTkxMTl8MHwxfHNlYXJjaHwxfHxjZXJhbWljJTIwcG90dGVyeSUyMGhhbmRtYWRlfGVufDB8MHx8fDE3NjM1MTI1ODN8MA&ixlib=rb-4.1.0&w=1600&auto=format&fit=crop&q=80'
+    image: 'https://images.unsplash.com/photo-1629380321590-3b3f75d66dec?ixid=M3w3OTkxMTl8MHwxfHNlYXJjaHwxfHxjZXJhbWljJTIwcG90dGVyeSUyMGhhbmRtYWRlfGVufDB8MHx8fDE3NjM1MTI1ODN8MA&ixlib=rb-4.1.0&w=1600&auto=format&fit=crop&q=80',
+    compat: ['5G + LTE', 'eSIM + physical SIM', 'Wi‑Fi 6']
   },
   {
     brand: 'Samsung',
     model: 'Galaxy A54',
     price: 1,
     details: 'With eligible trade‑in and bill credits.',
-    image: 'https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?auto=format&fit=crop&w=900&q=80'
+    image: 'https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?auto=format&fit=crop&w=900&q=80',
+    compat: ['5G + LTE', 'Dual SIM (varies by model)', 'Wi‑Fi 6']
   },
   {
     brand: 'Google',
     model: 'Pixel 7a',
     price: 2,
     details: 'With eligible trade‑in and bill credits.',
-    image: 'https://images.unsplash.com/photo-1629380321590-3b3f75d66dec?ixid=M3w3OTkxMTl8MHwxfHNlYXJjaHwxfHxjZXJhbWljJTIwcG90dGVyeSUyMGhhbmRtYWRlfGVufDB8MHx8fDE3NjM1MTI1ODN8MA&ixlib=rb-4.1.0&w=1600&auto=format&fit=crop&q=80'
+    image: 'https://images.unsplash.com/photo-1629380321590-3b3f75d66dec?ixid=M3w3OTkxMTl8MHwxfHNlYXJjaHwxfHxjZXJhbWljJTIwcG90dGVyeSUyMGhhbmRtYWRlfGVufDB8MHx8fDE3NjM1MTI1ODN8MA&ixlib=rb-4.1.0&w=1600&auto=format&fit=crop&q=80',
+    compat: ['5G + LTE', 'eSIM', 'Wi‑Fi 6']
   }
 ]
 
@@ -58,7 +64,7 @@ export default function DealsGrid() {
   return (
     <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
       {phones.map((p, i) => (
-        <button key={i} onClick={() => openModal(p)} className="group text-left rounded-3xl bg-gradient-to-br from-slate-900/80 to-slate-900/40 border border-white/10 p-4 hover:border-sky-400/30 transition">
+        <button key={i} onClick={() => openModal(p)} className="group text-left rounded-3xl bg-gradient-to-br from-slate-900/80 to-slate-900/40 border border-white/10 p-4 hover:border-sky-400/30 hover:shadow-[0_0_40px_rgba(56,189,248,0.25)] transition">
           <div className="flex items-center justify-between mb-2">
             <div className="inline-flex items-center gap-2 bg-sky-500/10 text-sky-300 px-2 py-1 rounded-lg text-xs border border-sky-400/20">LIMITED TIME ONLY</div>
             <BadgePercent className="w-4 h-4 text-sky-300" />
@@ -87,7 +93,18 @@ export default function DealsGrid() {
               <div className="h-48 rounded-xl overflow-hidden bg-slate-800/40 my-4">
                 <img src={selected.image} alt={`${selected.brand} ${selected.model}`} className="w-full h-full object-cover" />
               </div>
-              <p className="text-slate-300 text-sm leading-relaxed">{selected.details} Taxes, fees, and additional terms apply. Credit approval required. Offers subject to change. Images are illustrative devices, not product photography from manufacturers.</p>
+              <div className="grid md:grid-cols-2 gap-4 text-sm">
+                <div className="rounded-xl p-3 bg-slate-900/60 border border-white/10">
+                  <div className="text-white font-semibold mb-1 flex items-center gap-2"><Smartphone className="w-4 h-4 text-sky-300"/> Compatibility</div>
+                  <ul className="text-slate-300 list-disc pl-5 space-y-1">
+                    {selected.compat?.map((c, i) => <li key={i}>{c}</li>)}
+                  </ul>
+                </div>
+                <div className="rounded-xl p-3 bg-slate-900/60 border border-white/10">
+                  <div className="text-white font-semibold mb-1 flex items-center gap-2"><ShieldCheck className="w-4 h-4 text-sky-300"/> Legal</div>
+                  <p className="text-slate-300 leading-relaxed text-xs">{selected.details} Req’s installment agmt & eligible unlimited plan. Credits start w/in 3 bills. If svc cancelled, credits stop & remaining device balance due. Taxes & fees extra. Offers, terms & availability vary by location and are subject to change.</p>
+                </div>
+              </div>
             </div>
           </div>
         </div>

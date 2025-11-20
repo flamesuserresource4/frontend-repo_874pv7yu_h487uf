@@ -1,7 +1,8 @@
 import React from 'react'
 import { motion } from 'framer-motion'
 import { ArrowRight } from 'lucide-react'
-import { Link } from 'react-router-dom'
+
+const PROMO_URL = 'https://www.attspoc.com/e/(S(3urb2pri3azha2rq5la0c2cv))/oe/landing.aspx'
 
 const phoneImages = [
   {
@@ -37,12 +38,12 @@ export default function Hero() {
               </h1>
               <p className="mt-4 text-lg text-slate-300 max-w-xl">iPhone • Samsung • Pixel. Switch and save with bill credits and eligible trade‑in. Fast activation with our expert team.</p>
               <div className="mt-8 flex flex-col sm:flex-row gap-3">
-                <Link to="/phone-deals" className="inline-flex items-center justify-center px-6 py-3 rounded-xl bg-gradient-to-r from-sky-600 to-blue-600 text-white font-semibold shadow-[0_0_30px_rgba(56,189,248,0.35)] border border-sky-300/20 hover:opacity-90">
-                  Shop Phone Deals <ArrowRight className="w-4 h-4 ml-2" />
-                </Link>
-                <Link to="/contact" className="inline-flex items-center justify-center px-6 py-3 rounded-xl bg-slate-900/60 border border-white/10 text-white/90 hover:text-white hover:border-sky-300/30">
+                <a href={PROMO_URL} target="_blank" rel="noreferrer" className="inline-flex items-center justify-center px-6 py-3 rounded-xl bg-gradient-to-r from-sky-600 to-blue-600 text-white font-semibold shadow-[0_0_30px_rgba(56,189,248,0.35)] border border-sky-300/20 hover:opacity-90">
+                  Find Phone Deals <ArrowRight className="w-4 h-4 ml-2" />
+                </a>
+                <a href={PROMO_URL} target="_blank" rel="noreferrer" className="inline-flex items-center justify-center px-6 py-3 rounded-xl bg-slate-900/60 border border-white/10 text-white/90 hover:text-white hover:border-sky-300/30">
                   Check Eligibility
-                </Link>
+                </a>
               </div>
             </motion.div>
           </div>
