@@ -40,24 +40,24 @@ export default function PromoSections() {
     <section className="max-w-7xl mx-auto px-4 py-12 grid md:grid-cols-2 lg:grid-cols-4 gap-4">
       {sections.map((s) => (
         s.type === 'internal' ? (
-          <Link key={s.title} to={s.to} className="group relative rounded-3xl p-5 bg-gradient-to-br from-slate-900/80 to-slate-900/40 border border-white/10 hover:border-sky-400/30 transition overflow-hidden">
-            <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition bg-[radial-gradient(ellipse_at_top_left,rgba(2,132,199,0.2),transparent_60%)]" />
+          <Link key={s.title} to={s.to} className="group relative rounded-3xl p-5 bg-gradient-to-br from-white to-slate-50 border border-slate-200 hover:border-sky-400/30 transition overflow-hidden dark:from-slate-900/80 dark:to-slate-900/40 dark:border-white/10">
+            <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition bg-[radial-gradient(ellipse_at_top_left,rgba(2,132,199,0.12),transparent_60%)] dark:bg-[radial-gradient(ellipse_at_top_left,rgba(2,132,199,0.2),transparent_60%)]" />
             <div className="flex items-center justify-between mb-3">
-              <div className="inline-flex items-center gap-2 bg-sky-500/10 text-sky-300 px-2 py-1 rounded-lg text-xs border border-sky-400/20">LIMITED TIME ONLY</div>
-              <div className="text-sky-300">{s.icon}</div>
+              <div className="inline-flex items-center gap-2 bg-sky-100 text-sky-700 px-2 py-1 rounded-lg text-xs border border-sky-200 dark:bg-sky-500/10 dark:text-sky-300 dark:border-sky-400/20">LIMITED TIME ONLY</div>
+              <div className="text-sky-700 dark:text-sky-300">{s.icon}</div>
             </div>
-            <div className="text-white font-semibold text-lg">{s.title}</div>
-            <div className="text-slate-300 text-sm mt-1">{s.desc}</div>
+            <div className="text-slate-900 font-semibold text-lg dark:text-white">{s.title}</div>
+            <div className="text-slate-600 text-sm mt-1 dark:text-slate-300">{s.desc}</div>
           </Link>
         ) : (
-          <a key={s.title} href={s.href} target="_blank" rel="noreferrer" className="group relative rounded-3xl p-5 bg-gradient-to-br from-slate-900/80 to-slate-900/40 border border-white/10 hover:border-sky-400/30 transition overflow-hidden">
-            <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition bg-[radial-gradient(ellipse_at_top_left,rgba(2,132,199,0.2),transparent_60%)]" />
+          <a key={s.title} href={s.href} target="_blank" rel="noreferrer" className="group relative rounded-3xl p-5 bg-gradient-to-br from-white to-slate-50 border border-slate-200 hover:border-sky-400/30 transition overflow-hidden dark:from-slate-900/80 dark:to-slate-900/40 dark:border-white/10">
+            <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition bg-[radial-gradient(ellipse_at_top_left,rgba(2,132,199,0.12),transparent_60%)] dark:bg-[radial-gradient(ellipse_at_top_left,rgba(2,132,199,0.2),transparent_60%)]" />
             <div className="flex items-center justify-between mb-3">
-              <div className="inline-flex items-center gap-2 bg-sky-500/10 text-sky-300 px-2 py-1 rounded-lg text-xs border border-sky-400/20">LIMITED TIME ONLY</div>
-              <div className="text-sky-300">{s.icon}</div>
+              <div className="inline-flex items-center gap-2 bg-sky-100 text-sky-700 px-2 py-1 rounded-lg text-xs border border-sky-200 dark:bg-sky-500/10 dark:text-sky-300 dark:border-sky-400/20">LIMITED TIME ONLY</div>
+              <div className="text-sky-700 dark:text-sky-300">{s.icon}</div>
             </div>
-            <div className="text-white font-semibold text-lg">{s.title}</div>
-            <div className="text-slate-300 text-sm mt-1">{s.desc}</div>
+            <div className="text-slate-900 font-semibold text-lg dark:text-white">{s.title}</div>
+            <div className="text-slate-600 text-sm mt-1 dark:text-slate-300">{s.desc}</div>
           </a>
         )
       ))}
